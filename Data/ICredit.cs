@@ -1,6 +1,6 @@
 namespace NetCoreWebApi;
 
-public interface ICreditAccount : IAccount
+public interface ICredit : IAccount
 {
     public double CreditLimit { get; set; }
     public double CreditAvailable { get; set; }

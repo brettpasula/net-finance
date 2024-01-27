@@ -4,28 +4,26 @@ namespace NetCoreWebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CreditController : ControllerBase
+public class CreditController : ControllerBase, IEntityController<ICredit>
 {
     [HttpGet]
-    public IEnumerable<ICreditAccount> Get()
+    public IEnumerable<ICredit> Get()
     {
-        var sampleCreditAccounts = Enumerable.Range(1, 5).Select(i => new CreditAccount(
-            id: i * 12345957,
-            name: "Credit Account " + i,
-            bank: "Bank " + i,
-            creditLimit: i * 1000.25,
-            creditAvailable: (i * 1000.25) - (i * 100)));
-        return sampleCreditAccounts;
+        throw new NotImplementedException();
     }
 
     [HttpGet("{id}")]
-    public ICreditAccount Get(int id) { 
-        return CreditAccountAccess.Get(id);
+    public ICredit Get(int id) { 
+        throw new NotImplementedException();
     }
 
-    [HttpPut]
-    public void Put([FromBody] ICreditAccount creditAccount)
-    {
-        // 
+    [HttpPost]
+    public void Post([FromBody] ICredit creditAccount) { 
+        throw new NotImplementedException();
+    }
+
+    [HttpDelete]
+    public void Delete(int id) { 
+        throw new NotImplementedException();
     }
 }
