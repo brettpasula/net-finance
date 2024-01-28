@@ -7,13 +7,13 @@ namespace NetCoreWebApi;
 public class CashController : ControllerBase, IEntityController<ICash>
 {
     [HttpGet]
-    public IEnumerable<ICash> Get()
+    public string Get()
     {
         throw new NotImplementedException();
     }
 
     [HttpGet("{id}")]
-    public ICash Get(int id)
+    public string Get(int id)
     {
         throw new NotImplementedException();
     }
