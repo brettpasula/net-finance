@@ -19,12 +19,14 @@ public class CashController : ControllerBase, IEntityController<ICash>
     }
 
     [HttpPost]
-    public void Post([FromBody] ICash cashAccount) { 
+    public void Post([FromBody] ICash cashAccount)
+    {
         throw new NotImplementedException();
     }
 
     [HttpDelete]
-    public void Delete(int id) { 
+    public void Delete(int id)
+    {
         throw new NotImplementedException();
     }
 }

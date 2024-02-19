@@ -1,3 +1,5 @@
+using NetCoreWebApi.Data;
+
 namespace NetCoreWebApi;
 
 public interface ICredit : IAccount
@@ -5,9 +7,7 @@ public interface ICredit : IAccount
     public decimal CreditLimit { get; set; }
     public decimal CreditAvailable { get; set; }
     public decimal Balance { get; }
-    public DateTime? LastPaymentDate { get; set; }
-    public string? RewardsProgramDetails { get; set; }
-    public string? RewardsProgramBalance { get; set; }
-    public decimal? StatementBalance { get; set; }
-    public DateTime? StatementDueDate { get; set; }
+    public decimal AnnualFee { get; set; }
+    public IRewardsProgram RewardsProgram { get; set; }
+    public IEnumerable<IBill> Bills { get; set; }
 }
