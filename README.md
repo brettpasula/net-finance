@@ -1,7 +1,5 @@
-# net-core-web-api
+# (WIP) NetFinance
 
-Built with `dotnet new webapi`.
-
-To build and run: `dotnet run`
-
+## Running the development server (+ Swagger docs)
+To build and run: `dotnet run`\
 To access Swagger docs: http://localhost:5204/swagger
