@@ -1,6 +1,6 @@
 ﻿namespace NetCoreWebApi;
 
-public interface ICash : IAccount
+public class Cash : Account
 {
     public double Value { get; set; }
 }

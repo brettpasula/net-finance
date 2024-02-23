@@ -4,7 +4,7 @@ namespace NetCoreWebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CreditController : ControllerBase, IEntityController<ICredit>
+public class CreditController : ControllerBase, IEntityController<Credit>
 {
     [HttpGet]
     public string Get()
@@ -19,7 +19,7 @@ public class CreditController : ControllerBase, IEntityController<ICredit>
     }
 
     [HttpPost]
-    public void Post([FromBody] ICredit creditAccount)
+    public void Post([FromBody] Credit creditAccount)
     {
         throw new NotImplementedException();
     }

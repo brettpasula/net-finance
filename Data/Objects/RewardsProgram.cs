@@ -1,8 +1,9 @@
 ﻿namespace NetCoreWebApi.Data;
 
-public interface IRewardsProgram
+public class RewardsProgram
 {
+    public int? ID { get; set; }
     public decimal Balance { get; set; }
     public string Details { get; set; }
-    public IUnit Unit { get; set; }
+    public Unit Unit { get; set; }
 }

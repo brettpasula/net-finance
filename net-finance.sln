@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreWebApi", "NetCoreWebApi.csproj", "{24436C5F-90EF-4A61-B92C-340D9C8C95F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sitchensis", "Sitchensis.csproj", "{24436C5F-90EF-4A61-B92C-340D9C8C95F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

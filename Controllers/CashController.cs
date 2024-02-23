@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace NetCoreWebApi;
 
 [ApiController]
 [Route("[controller]")]
-public class CashController : ControllerBase, IEntityController<ICash>
+public class CashController : ControllerBase, IEntityController<Cash>
 {
     [HttpGet]
     public string Get()
@@ -19,9 +20,19 @@ public class CashController : ControllerBase, IEntityController<ICash>
     }
 
     [HttpPost]
-    public void Post([FromBody] ICash cashAccount)
+    public void Post([FromBody] Cash cashAccount)
     {
-        throw new NotImplementedException();
+        using var db = new DatabaseContext();
+        if (cashAccount.ID.HasValue)
+        {
+            db.Add(cashAccount);
+            db.SaveChanges();
+        }
+        else
+        {
+            db.Update(cashAccount);
+            db.SaveChanges();
+        }
     }
 
     [HttpDelete]
