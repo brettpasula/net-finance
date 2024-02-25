@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace NetCoreWebApi.Controllers;
 
@@ -7,26 +8,38 @@ namespace NetCoreWebApi.Controllers;
 public class CreditController : ControllerBase, IEntityController<Credit>
 {
     [HttpGet]
-    public string Get()
+    public IEnumerable<Credit> Get()
     {
-        throw new NotImplementedException();
+        using var db = new DatabaseContext();
+        return db.CreditAccounts;
     }
 
     [HttpGet("{id}")]
-    public string Get(int id)
+    public Credit Get(int id)
     {
-        throw new NotImplementedException();
+        using var db = new DatabaseContext();
+        return db.CreditAccounts.Single(creditAccount => creditAccount.ID == id);
     }
 
     [HttpPost]
     public void Post([FromBody] Credit creditAccount)
     {
-        throw new NotImplementedException();
+        using var db = new DatabaseContext();
+        if (creditAccount.ID.HasValue) { 
+            db.Update(creditAccount);
+            db.SaveChanges();
+        } else { 
+            db.Add(creditAccount);
+            db.SaveChanges();
+        }
     }
 
     [HttpDelete]
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        using var db = new DatabaseContext();
+        var creditAccountToRemove = db.CreditAccounts.Single(creditAccount => creditAccount.ID == id);
+        db.Remove(creditAccountToRemove);
+        db.SaveChanges();
     }
 }

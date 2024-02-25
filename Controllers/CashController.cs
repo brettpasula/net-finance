@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq.Expressions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace NetCoreWebApi;
@@ -8,15 +9,17 @@ namespace NetCoreWebApi;
 public class CashController : ControllerBase, IEntityController<Cash>
 {
     [HttpGet]
-    public string Get()
+    public IEnumerable<Cash> Get()
     {
-        throw new NotImplementedException();
+        using var db = new DatabaseContext();
+        return [.. db.CashAccounts];
     }
 
     [HttpGet("{id}")]
-    public string Get(int id)
+    public Cash Get(int id)
     {
-        throw new NotImplementedException();
+        using var db = new DatabaseContext();
+        return db.CashAccounts.Single(cashAccount => cashAccount.ID == id);
     }
 
     [HttpPost]
