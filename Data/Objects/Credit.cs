@@ -1,6 +1,4 @@
-using NetCoreWebApi.Data;
-
-namespace NetCoreWebApi;
+namespace Sitchensis.Data.Objects;
 
 public class Credit : Account
 {

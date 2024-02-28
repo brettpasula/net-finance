@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace NetCoreWebApi;
+namespace Sitchensis.Controllers;
 
 public interface IEntityController<T>
 {

@@ -1,4 +1,4 @@
-﻿namespace NetCoreWebApi.Data;
+﻿namespace Sitchensis.Data.Objects;
 
 public class RewardsProgram
 {

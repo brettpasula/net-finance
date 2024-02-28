@@ -1,4 +1,4 @@
-﻿namespace NetCoreWebApi;
+﻿namespace Sitchensis.Data.Objects;
 
 public class Bank
 {

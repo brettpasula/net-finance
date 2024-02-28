@@ -1,8 +1,8 @@
-﻿using System.Linq.Expressions;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Sitchensis.Data;
+using Sitchensis.Data.Objects;
 
-namespace NetCoreWebApi;
+namespace Sitchensis.Controllers;
 
 [ApiController]
 [Route("[controller]")]

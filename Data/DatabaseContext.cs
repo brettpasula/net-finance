@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Sitchensis.Data.Objects;
 
-namespace NetCoreWebApi;
+namespace Sitchensis.Data;
 
 public sealed class DatabaseContext : DbContext
 {
