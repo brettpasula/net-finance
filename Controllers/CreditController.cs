@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Sitchensis.Data;
-using Sitchensis.Data.Objects;
+using Sitchensis.Data.Object;
 
 namespace Sitchensis.Controllers;
 
@@ -11,22 +11,22 @@ public class CreditController : ControllerBase, IEntityController<Credit>
     [HttpGet]
     public IEnumerable<Credit> Get()
     {
-        using var db = new DatabaseContext();
+        var db = new DatabaseContext();
         return db.CreditAccounts;
     }
 
     [HttpGet("{id}")]
     public Credit Get(int id)
     {
-        using var db = new DatabaseContext();
+        var db = new DatabaseContext();
         return db.CreditAccounts.Single(creditAccount => creditAccount.ID == id);
     }
 
     [HttpPost]
     public void Post([FromBody] Credit creditAccount)
     {
-        using var db = new DatabaseContext();
-        if (creditAccount.ID.HasValue) { 
+        var db = new DatabaseContext();
+        if (creditAccount.ID == 0) { 
             db.Update(creditAccount);
             db.SaveChanges();
         } else { 
@@ -38,7 +38,7 @@ public class CreditController : ControllerBase, IEntityController<Credit>
     [HttpDelete]
     public void Delete(int id)
     {
-        using var db = new DatabaseContext();
+        var db = new DatabaseContext();
         var creditAccountToRemove = db.CreditAccounts.Single(creditAccount => creditAccount.ID == id);
         db.Remove(creditAccountToRemove);
         db.SaveChanges();

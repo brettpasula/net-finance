@@ -6,34 +6,34 @@ namespace Sitchensis.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CashController : ControllerBase, IEntityController<Cash>
+public class UnitController : ControllerBase, IEntityController<Unit>
 {
     [HttpGet]
-    public IEnumerable<Cash> Get()
+    public IEnumerable<Unit> Get()
     {
         var db = new DatabaseContext();
-        return db.CashAccounts;
+        return db.Units;
     }
 
     [HttpGet("{id}")]
-    public Cash Get(int id)
+    public Unit Get(int id)
     {
         var db = new DatabaseContext();
-        return db.CashAccounts.Single(cashAccount => cashAccount.ID == id);
+        return db.Units.Where(unit => unit.ID == id).Single();
     }
 
     [HttpPost]
-    public void Post([FromBody] Cash cashAccount)
+    public void Post([FromBody] Unit unit)
     {
         var db = new DatabaseContext();
-        if (cashAccount.ID == 0)
+        if (unit.ID == 0)
         {
-            db.Add(cashAccount);
+            db.Add(unit);
             db.SaveChanges();
         }
         else
         {
-            db.Update(cashAccount);
+            db.Update(unit);
             db.SaveChanges();
         }
     }
@@ -41,6 +41,9 @@ public class CashController : ControllerBase, IEntityController<Cash>
     [HttpDelete]
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        var db = new DatabaseContext();
+        var unitToRemove = db.Units.Where(unit => unit.ID == id).Single();
+        db.Remove(unitToRemove);
+        db.SaveChanges();
     }
 }
