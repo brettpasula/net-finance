@@ -1,11 +1,17 @@
 # (WIP) NetFinance
 
-## Running the development server (+ Swagger docs)
-To build and run: `dotnet run`\
-The server will listen on port `5204`.\
-To access Swagger docs: http://localhost:5204/swagger
+### Running the development server (+ Swagger)
+Build and run: `dotnet run`\
+Development server: http://localhost:5204 \
+Swagger: http://localhost:5204/swagger
 
-## Reference
+### Database
+Add a migration: `dotnet ef migrations add MyMigration`\
+Apply the migration: `dotnet ef database update`
+
+Database options are specified in the `OnConfiguring` call in `Data/DatabaseContext.cs`.
+
+### Reference
 [Swagger](https://swagger.io/docs/)\
 [Create web APIs with ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-8.0)\
 [Entity Framework documentation hub](https://learn.microsoft.com/en-us/ef/)\
